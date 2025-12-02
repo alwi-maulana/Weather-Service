@@ -1,6 +1,5 @@
 package id.maulana.apps.weather.util;
 
-import com.fasterxml.jackson.databind.util.ObjectBuffer;
 import jakarta.enterprise.context.ApplicationScoped;
 import kong.unirest.HttpResponse;
 import kong.unirest.Unirest;
@@ -13,8 +12,7 @@ public class RestUtil {
         try {
             Unirest.config().verifySsl(false);
 
-            return Unirest.get(url)
-                    .asObject(Object.class);
+            return Unirest.get(url).asObject(Object.class);
         } catch (Exception e) {
             Thread.currentThread().interrupt();
             throw new RuntimeException(e);

@@ -3,7 +3,6 @@ package id.maulana.apps.weather.common;
 public class CommonConstant {
 
     private CommonConstant() {
-
     }
 
     public static class Log {

@@ -1,11 +1,7 @@
 package id.maulana.apps.weather.entity;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import org.hibernate.annotations.UuidGenerator;
 
 import java.sql.Timestamp;
@@ -14,7 +10,6 @@ import java.util.UUID;
 @Entity
 @Table(name = "weather_data_history", schema = "weather", catalog = "automation")
 public class WeatherDataHistory extends PanacheEntityBase {
-
 
     @Id
     @GeneratedValue(generator = "UUID")

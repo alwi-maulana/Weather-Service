@@ -11,8 +11,6 @@ import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-//import javax.inject.Inject;
-
 import java.sql.Timestamp;
 import java.time.Instant;
 
@@ -34,7 +32,7 @@ public class WeatherServiceImpl implements WeatherService {
 
     @Override
     @Transactional
-    public CurrentWeatherResponseDTO  currentWeatherByCity(String city) throws ValidationException {
+    public CurrentWeatherResponseDTO currentWeatherByCity(String city) throws ValidationException {
         CurrentWeatherDTO currentWeatherDTO = thirdPartiesService.getCurrentWeather(city);
 
         if (currentWeatherDTO == null) {

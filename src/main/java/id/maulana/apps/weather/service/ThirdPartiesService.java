@@ -6,10 +6,9 @@ import id.maulana.apps.weather.util.RestUtil;
 import io.vertx.core.json.JsonObject;
 import jakarta.enterprise.context.ApplicationScoped;
 import kong.unirest.HttpResponse;
-import kong.unirest.JsonObjectMapper;
-import org.eclipse.microprofile.config.inject.ConfigProperties;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
-import org.slf4j.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import static id.maulana.apps.weather.common.CommonConstant.MessageError.FAILED_FETCH_DATA_CURRENT_WEATHER;
 

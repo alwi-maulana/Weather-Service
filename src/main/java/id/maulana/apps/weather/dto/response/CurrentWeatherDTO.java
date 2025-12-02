@@ -2,7 +2,6 @@ package id.maulana.apps.weather.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import javax.xml.stream.Location;
 import java.io.Serializable;
 
 @JsonIgnoreProperties(ignoreUnknown = true)

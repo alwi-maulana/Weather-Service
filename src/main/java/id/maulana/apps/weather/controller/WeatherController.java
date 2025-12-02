@@ -16,13 +16,10 @@ import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.eclipse.microprofile.openapi.annotations.security.SecurityScheme;
 import org.eclipse.microprofile.openapi.annotations.security.SecuritySchemes;
 
-//import javax.inject.Inject;
-
 @Path("/v1/weather/info")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-@SecuritySchemes(value = {
-        @SecurityScheme(securitySchemeName = "accessToken", type = SecuritySchemeType.HTTP, scheme = "bearer", apiKeyName = "Authorization: Bearer", bearerFormat = "jwt")})
+@SecuritySchemes(value = {@SecurityScheme(securitySchemeName = "accessToken", type = SecuritySchemeType.HTTP, scheme = "bearer", apiKeyName = "Authorization: Bearer", bearerFormat = "jwt")})
 public class WeatherController {
 
     private final WeatherService weatherService;
@@ -36,14 +33,9 @@ public class WeatherController {
     @Path("/current-weather/{city}")
     @CaptureTransaction
     @Operation(summary = "Get Current Weather Information by City", description = "Get Current Weather Information by City")
-    @APIResponses(value = {
-            @APIResponse(responseCode = "200", description = "OK", content = @Content(mediaType = MediaType.APPLICATION_JSON)),
-            @APIResponse(responseCode = "400", description = "Bad Request", content = @Content(mediaType = MediaType.APPLICATION_JSON)),
-            @APIResponse(responseCode = "401", description = "Unauthorized", content = @Content(mediaType = MediaType.APPLICATION_JSON)),
-            @APIResponse(responseCode = "500", description = "Internal Server Error", content = @Content(mediaType = MediaType.APPLICATION_JSON)),})
+    @APIResponses(value = {@APIResponse(responseCode = "200", description = "OK", content = @Content(mediaType = MediaType.APPLICATION_JSON)), @APIResponse(responseCode = "400", description = "Bad Request", content = @Content(mediaType = MediaType.APPLICATION_JSON)), @APIResponse(responseCode = "401", description = "Unauthorized", content = @Content(mediaType = MediaType.APPLICATION_JSON)), @APIResponse(responseCode = "500", description = "Internal Server Error", content = @Content(mediaType = MediaType.APPLICATION_JSON)),})
     public Response getCurrentWeatherByCity(@PathParam("city") String city) throws ValidationException {
         CurrentWeatherResponseDTO response = weatherService.currentWeatherByCity(city);
         return Response.ok().entity(response).build();
     }
-
 }
